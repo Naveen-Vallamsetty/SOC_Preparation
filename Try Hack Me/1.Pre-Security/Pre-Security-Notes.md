@@ -1,7 +1,6 @@
 # Pre-Security — Complete Study Notes
 
-> Complete study notes for the TryHackMe Pre-Security learning path.  
-> Scope: Pre-Security only. Cyber Security 101 is excluded.
+> Complete study notes for the TryHackMe Pre-Security learning path.
 
 ## Table of Contents
 
