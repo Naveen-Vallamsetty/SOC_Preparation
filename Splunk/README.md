@@ -19,12 +19,11 @@ This section covers:
 
 ## Learning Roadmap
 
-| Part   | Training               | Modules | Status      |
-| ------ | ---------------------- | ------: | ----------- |
-| Part 1 | Splunk Fundamentals 1  |       6 | In Progress |
-| Part 2 | Splunk Fundamentals 2  |       5 | Not Started |
-| Part 3 | Splunk SPL for SOC     |      10 | Not Started |
-| Part 4 | Practical SOC Projects |       6 | Not Started |
+| Part   | Training              | Modules | Status      |
+| ------ | --------------------- | ------: | ----------- |
+| Part 1 | Splunk Fundamentals 1 |       6 | In Progress |
+| Part 2 | Splunk Fundamentals 2 |       5 | Not Started |
+| Part 3 | Splunk SPL for SOC    |      10 | Not Started |
 
 ## Part 1 — Splunk Fundamentals 1
 
@@ -68,17 +67,6 @@ Develop practical SPL skills for security investigations.
 | 09     | Detection Engineering and Alerts |
 | 10     | Threat Hunting and Optimization  |
 
-## Part 4 — Practical SOC Projects
-
-| Project | Project Name                      |
-| ------- | --------------------------------- |
-| 01      | Linux Security Monitoring         |
-| 02      | Edge Infrastructure Monitoring    |
-| 03      | Brute-Force Investigation         |
-| 04      | VPN and Linux Correlation         |
-| 05      | Threat Intelligence Investigation |
-| 06      | Complete SOC Monitoring Dashboard |
-
 ## My Practical Focus Areas
 
 Based on my previous infrastructure monitoring experience:
@@ -90,27 +78,6 @@ Based on my previous infrastructure monitoring experience:
 5. Wireless Access Points (WAPs).
 
 The learning process will cover both operational telemetry and security-related events.
-
-## Security Detection Coverage
-
-The practical projects will include:
-
-- Authentication attacks.
-- Brute-force attacks.
-- Password spraying.
-- Phishing.
-- Malware.
-- Privilege escalation.
-- Unauthorized access.
-- Suspicious network connections.
-- Firewall security.
-- VPN security.
-- Web application attacks.
-- Data exfiltration.
-- Cloud security.
-- Insider threats.
-- IoT and edge security.
-- DDoS and availability incidents.
 
 ## Official Resources
 

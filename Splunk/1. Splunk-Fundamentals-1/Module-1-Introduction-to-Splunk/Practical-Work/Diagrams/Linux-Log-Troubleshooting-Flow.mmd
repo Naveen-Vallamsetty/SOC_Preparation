@@ -1,0 +1,122 @@
+
+flowchart TD
+
+    START["Start: Logs are not appearing in Splunk"]
+
+    SOURCE["1. Check the Linux Log Source"]
+    FILE{"Does the log file exist?"}
+
+    FILE_ERROR["Investigate the log source<br/>Check file path and logging service"]
+
+    PERMISSION["2. Check File Permissions"]
+    ACCESS{"Can the Forwarder read the file?"}
+
+    ACCESS_ERROR["Check file ownership and permissions<br/>Verify Forwarder access"]
+
+    UF["3. Check Universal Forwarder"]
+    UF_STATUS{"Is the Forwarder running?"}
+
+    UF_ERROR["Check Forwarder status<br/>Start or troubleshoot the service"]
+
+    INPUT["4. Check inputs.conf"]
+    INPUT_CONFIG{"Is the monitor input configured correctly?"}
+
+    INPUT_ERROR["Verify monitor path<br/>Check disabled setting<br/>Verify index and sourcetype"]
+
+    OUTPUT["5. Check outputs.conf"]
+    OUTPUT_CONFIG{"Is the Indexer destination correct?"}
+
+    OUTPUT_ERROR["Verify Indexer IP address<br/>Check receiving port and forwarding group"]
+
+    NETWORK["6. Check Network Connectivity"]
+    CONNECTION{"Can the Forwarder connect to the Indexer?"}
+
+    NETWORK_ERROR["Check network route and firewall<br/>Test TCP port 9997"]
+
+    RECEIVER["7. Check Indexer Receiving"]
+    RECEIVER_STATUS{"Is the receiving port listening?"}
+
+    RECEIVER_ERROR["Enable receiving on the Indexer<br/>Verify TCP port 9997"]
+
+    INDEX["8. Check Target Index"]
+    INDEX_STATUS{"Does the target index exist?"}
+
+    INDEX_ERROR["Verify index name<br/>Create or correct the target index"]
+
+    SEARCH["9. Verify in Splunk Search"]
+    RESULTS{"Are the events searchable?"}
+
+    SEARCH_ERROR["Check time range, index,<br/>sourcetype, permissions and ingestion logs"]
+
+    SUCCESS["Success: Events are available in Splunk"]
+
+    END["Document Findings and Root Cause"]
+
+    START --> SOURCE
+    SOURCE --> FILE
+
+    FILE -- No --> FILE_ERROR
+    FILE_ERROR --> END
+
+    FILE -- Yes --> PERMISSION
+    PERMISSION --> ACCESS
+
+    ACCESS -- No --> ACCESS_ERROR
+    ACCESS_ERROR --> END
+
+    ACCESS -- Yes --> UF
+    UF --> UF_STATUS
+
+    UF_STATUS -- No --> UF_ERROR
+    UF_ERROR --> END
+
+    UF_STATUS -- Yes --> INPUT
+    INPUT --> INPUT_CONFIG
+
+    INPUT_CONFIG -- No --> INPUT_ERROR
+    INPUT_ERROR --> END
+
+    INPUT_CONFIG -- Yes --> OUTPUT
+    OUTPUT --> OUTPUT_CONFIG
+
+    OUTPUT_CONFIG -- No --> OUTPUT_ERROR
+    OUTPUT_ERROR --> END
+
+    OUTPUT_CONFIG -- Yes --> NETWORK
+    NETWORK --> CONNECTION
+
+    CONNECTION -- No --> NETWORK_ERROR
+    NETWORK_ERROR --> END
+
+    CONNECTION -- Yes --> RECEIVER
+    RECEIVER --> RECEIVER_STATUS
+
+    RECEIVER_STATUS -- No --> RECEIVER_ERROR
+    RECEIVER_ERROR --> END
+
+    RECEIVER_STATUS -- Yes --> INDEX
+    INDEX --> INDEX_STATUS
+
+    INDEX_STATUS -- No --> INDEX_ERROR
+    INDEX_ERROR --> END
+
+    INDEX_STATUS -- Yes --> SEARCH
+    SEARCH --> RESULTS
+
+    RESULTS -- No --> SEARCH_ERROR
+    SEARCH_ERROR --> END
+
+    RESULTS -- Yes --> SUCCESS
+    SUCCESS --> END
+
+    classDef start fill:#d9ead3,stroke:#38761d,color:#274e13
+    classDef process fill:#e8f1ff,stroke:#3973ac,color:#172b4d
+    classDef decision fill:#fff2cc,stroke:#c79a28,color:#4d3b00
+    classDef error fill:#f4cccc,stroke:#cc0000,color:#660000
+    classDef success fill:#d9ead3,stroke:#38761d,color:#274e13
+
+    class START start
+    class SOURCE,PERMISSION,UF,INPUT,OUTPUT,NETWORK,RECEIVER,INDEX,SEARCH process
+    class FILE,ACCESS,UF_STATUS,INPUT_CONFIG,OUTPUT_CONFIG,CONNECTION,RECEIVER_STATUS,INDEX_STATUS,RESULTS decision
+    class FILE_ERROR,ACCESS_ERROR,UF_ERROR,INPUT_ERROR,OUTPUT_ERROR,NETWORK_ERROR,RECEIVER_ERROR,INDEX_ERROR,SEARCH_ERROR error
+    class SUCCESS,END success
