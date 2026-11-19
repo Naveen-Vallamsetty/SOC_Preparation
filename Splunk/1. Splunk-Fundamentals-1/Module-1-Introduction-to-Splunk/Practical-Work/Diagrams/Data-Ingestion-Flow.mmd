@@ -1,0 +1,39 @@
+flowchart TB
+    A["Data Sources<br/>Linux, Windows, Network Devices, Applications"]
+
+    B["Data Collection"]
+
+    C["Universal Forwarder"]
+    D["Heavy Forwarder"]
+    E["Syslog / HTTP Event Collector"]
+
+    F["Splunk Receiving Port<br/>TCP 9997 or HEC TCP 8088"]
+
+    G["Splunk Indexer"]
+    H["Parsing and Event Processing"]
+    I["Indexing"]
+    J["Stored Events"]
+
+    K["Search Head"]
+    L["SPL Search"]
+    M["Search Results"]
+    N["SOC Analyst"]
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+
+    C --> F
+    D --> F
+    E --> F
+
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+
+    J --> K
+    K --> L
+    L --> M
+    M --> N
