@@ -307,16 +307,16 @@ Complete the following table based on the actual lab observations.
 
 | Activity                   | Result  | Observation                            |
 | -------------------------- | ------- | -------------------------------------- |
-| Opened Splunk Web          | Pending | Record whether the login page opened.  |
-| Logged in successfully     | Pending | Record the authentication result.      |
-| Opened Search & Reporting  | Pending | Record whether the application opened. |
-| Executed `index=_internal` | Pending | Record whether events appeared.        |
-| Opened an individual event | Pending | Record the fields observed.            |
-| Explored Fields sidebar    | Pending | Record the available fields.           |
-| Changed time range         | Pending | Record how the results changed.        |
-| Searched internal errors   | Pending | Record the returned events, if any.    |
+| Opened Splunk Web          | Completed | Record whether the login page opened.  |
+| Logged in successfully     | Completed | Record the authentication result.      |
+| Opened Search & Reporting  | Completed | Record whether the application opened. |
+| Executed `index=_internal` | Completed | Record whether events appeared.        |
+| Opened an individual event | Completed | Record the fields observed.            |
+| Explored Fields sidebar    | Completed | Record the available fields.           |
+| Changed time range         | Completed | Record how the results changed.        |
+| Searched internal errors   | Completed | Record the returned events, if any.    |
 
-Replace `Pending` with the actual result after performing each activity.
+Replace `Pending` with the actual result after performing each activity. - Completed
 
 ---
 
