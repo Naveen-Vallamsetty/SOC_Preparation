@@ -53,6 +53,12 @@ If Splunk is not running, start it:
 sudo /opt/splunk/bin/splunk start
 ```
 
+If root user is not allowed to start, use 
+
+```bash
+sudo -u splunk /opt/splunk/bin/splunk start --accept-license
+```
+
 Check the Ubuntu IP address:
 
 ```bash
